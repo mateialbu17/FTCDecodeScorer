@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayoutChart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBackChart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:tint="#AAAAAA"/>
+
+        <TextView
+            android:id="@+id/tvChartTitle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Score Progression"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <ImageView
+            android:id="@+id/btnRotateChart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_always_landscape_portrait"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:tint="#BB86FC"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageView
+            android:id="@+id/btnSaveChart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_save"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:tint="#03DAC5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <Switch
+            android:id="@+id/switchDarkMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark Mode"
+            android:textColor="#FFFFFF"
+            android:checked="true"/>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="16dp">
+        <RadioGroup
+            android:id="@+id/rgColors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbColorCyan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cyan" android:textColor="#FFF" android:checked="true"/>
+            <RadioButton android:id="@+id/rbColorPurple" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Purple" android:textColor="#FFF"/>
+            <RadioButton android:id="@+id/rbColorGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Green" android:textColor="#FFF"/>
+            <RadioButton android:id="@+id/rbColorOrange" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Orange" android:textColor="#FFF"/>
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:id="@+id/chartContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

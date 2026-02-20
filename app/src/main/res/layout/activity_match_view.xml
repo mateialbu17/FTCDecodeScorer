@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Session:"
+            android:textColor="#B0B0B0"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <Spinner
+                android:id="@+id/spinnerSessions"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_card"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:elevation="2dp"/>
+
+            <Button
+                android:id="@+id/btnViewHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Folders"
+                android:backgroundTint="#333333"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp"
+                app:icon="@android:drawable/ic_menu_sort_by_size"
+                app:iconTint="#FFFFFF"/>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="02:30"
+                    android:textColor="#FFFFFF"
+                    android:textSize="64sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-black"/>
+
+                <TextView
+                    android:id="@+id/tvTotalScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SCORE: 0"
+                    android:textColor="#03DAC5"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="-8dp"/>
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="START TIMER"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#03DAC5"
+                    android:textColor="#000000"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AUTONOMOUS PERIOD"
+            android:textColor="#BB86FC"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <CheckBox
+                    android:id="@+id/cbAutoLeave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Leave Starting Zone (3p)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:buttonTint="#BB86FC"
+                    android:paddingStart="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#333333"
+                    android:layout_marginVertical="12dp"/>
+
+                <include layout="@layout/item_counter" android:id="@+id/incAutoClassified"/>
+                <include layout="@layout/item_counter" android:id="@+id/incAutoOverflow"/>
+                <include layout="@layout/item_counter" android:id="@+id/incAutoPattern"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TELEOP PERIOD"
+            android:textColor="#03DAC5"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <include layout="@layout/item_counter" android:id="@+id/incTeleopClassified"/>
+                <include layout="@layout/item_counter" android:id="@+id/incTeleopOverflow"/>
+                <include layout="@layout/item_counter" android:id="@+id/incTeleopDepot"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENDGAME"
+            android:textColor="#CF6679"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:text="Robot Parking"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioGroup
+                    android:id="@+id/rgPark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <RadioButton
+                        android:id="@+id/rbParkNone"
+                        android:text="None"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#CF6679"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <RadioButton
+                        android:id="@+id/rbParkPartial"
+                        android:text="Partial (5)"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#CF6679"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <RadioButton
+                        android:id="@+id/rbParkFull"
+                        android:text="Full (10)"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#CF6679"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                </RadioGroup>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>
