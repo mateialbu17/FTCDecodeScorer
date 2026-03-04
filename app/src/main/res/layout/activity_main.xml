@@ -3,210 +3,278 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark"
+    android:background="#000000"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:paddingBottom="100dp">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="24dp">
 
             <RadioGroup
                 android:id="@+id/rgAppMode"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
                 android:orientation="horizontal"
                 android:background="@drawable/bg_button_round"
-                android:backgroundTint="#333"
+                android:backgroundTint="#1A1A1A"
                 android:gravity="center">
-                <RadioButton android:id="@+id/rbModePractice" android:text="PRACTICE" android:textColor="#FFF" android:buttonTint="@color/accent_score" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:checked="true"/>
-                <RadioButton android:id="@+id/rbModeScouting" android:text="SCOUTING" android:textColor="#FFF" android:buttonTint="@color/accent_score" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                <RadioButton android:id="@+id/rbModePractice" android:text="PRACTICE" android:textSize="12sp" android:textStyle="bold" android:textColor="#FFF" android:buttonTint="#0A7AFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:checked="true"/>
+                <RadioButton android:id="@+id/rbModeScouting" android:text="SCOUTING" android:textSize="12sp" android:textStyle="bold" android:textColor="#FFF" android:buttonTint="#0A7AFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
             </RadioGroup>
 
-            <ImageButton
-                android:id="@+id/btnSettings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_button_round"
-                android:backgroundTint="#333"
-                android:src="@android:drawable/ic_menu_preferences"
-                android:layout_marginStart="8dp"
-                app:tint="#AAA"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                app:cardBackgroundColor="#1A1A1A"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+
+                <ImageButton
+                    android:id="@+id/btnSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_preferences"
+                    android:scaleType="centerInside"
+                    android:padding="12dp"
+                    app:tint="#FFFFFF"/>
+            </androidx.cardview.widget.CardView>
 
             <Button
                 android:id="@+id/btnViewHistory"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="History"
-                android:backgroundTint="#333"
+                android:layout_height="48dp"
+                android:text="HISTORY"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:backgroundTint="#1A1A1A"
                 android:textColor="#FFFFFF"
-                android:layout_marginStart="4dp"/>
+                app:cornerRadius="24dp"
+                android:layout_marginStart="10dp"/>
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-            <TextView android:text="Type: " android:textColor="#AAA" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <Spinner
-                android:id="@+id/spinnerMatchType"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_button_round"
-                android:backgroundTint="#252525"
-                android:paddingStart="12dp"/>
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <LinearLayout
-            android:id="@+id/layoutPracticeHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="12dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Select Practice Folder:" android:textColor="#888" android:textSize="12sp"/>
-            <Spinner
-                android:id="@+id/spinnerSessions"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_button_round"
-                android:backgroundTint="#252525"
-                android:paddingStart="12dp"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <TextView android:text="Match Type" android:textStyle="bold" android:textColor="#888888" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:id="@+id/spinnerMatchType"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_spinner_oneui"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="40dp"/>
+                </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutScoutingHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="12dp"
-            android:visibility="gone">
-            <EditText
-                android:id="@+id/etTeamNumber"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:hint="Team #"
-                android:textColorHint="#AAAAAA"
-                android:textColor="#FFF"
-                android:background="@drawable/bg_button_round"
-                android:backgroundTint="#252525"
-                android:padding="12dp"
-                android:inputType="number"
-                android:layout_marginEnd="8dp"/>
-            <EditText
-                android:id="@+id/etMatchNumber"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:hint="Match #"
-                android:textColorHint="#AAAAAA"
-                android:textColor="#FFF"
-                android:background="@drawable/bg_button_round"
-                android:backgroundTint="#252525"
-                android:padding="12dp"
-                android:inputType="text"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layoutPracticeHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Practice Folder" android:textStyle="bold" android:textColor="#888888" android:textSize="14sp" android:layout_marginBottom="8dp"/>
+                    <Spinner
+                        android:id="@+id/spinnerSessions"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_spinner_oneui"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="40dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutScoutingHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Spinner
+                        android:id="@+id/spinnerCompetitionType"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_spinner_oneui"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="40dp"/>
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actvEventName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Event Name"
+                        android:textColorHint="#888888"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_button_round"
+                        android:backgroundTint="#2C2C2E"
+                        android:layout_marginBottom="12dp"
+                        android:paddingHorizontal="16dp"
+                        android:completionThreshold="1"
+                        android:singleLine="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/etTeamNumber"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="48dp"
+                            android:hint="Team #"
+                            android:textColorHint="#888888"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_button_round"
+                            android:backgroundTint="#2C2C2E"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:inputType="number"
+                            android:layout_marginEnd="8dp"/>
+                        <EditText
+                            android:id="@+id/etMatchNumber"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="48dp"
+                            android:hint="Match #"
+                            android:textColorHint="#888888"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_button_round"
+                            android:backgroundTint="#2C2C2E"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardRandomization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card"
-            app:cardCornerRadius="16dp"
-            android:layout_marginBottom="16dp">
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="20dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="12dp"
+                android:padding="20dp"
                 android:gravity="center">
-                <TextView android:text="RANDOMIZATION" android:textColor="#888" android:textSize="12sp" android:letterSpacing="0.1" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+                <TextView android:text="RANDOMIZATION" android:textColor="#888888" android:textSize="13sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 <LinearLayout
                     android:id="@+id/layoutMotif"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginVertical="8dp">
-                    <ImageView android:id="@+id/imgBall1" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ball_green" android:layout_margin="4dp"/>
-                    <ImageView android:id="@+id/imgBall2" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ball_purple" android:layout_margin="4dp"/>
-                    <ImageView android:id="@+id/imgBall3" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ball_green" android:layout_margin="4dp"/>
+                    android:layout_marginVertical="16dp">
+                    <ImageView android:id="@+id/imgBall1" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ball_green" android:layout_marginHorizontal="8dp"/>
+                    <ImageView android:id="@+id/imgBall2" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ball_purple" android:layout_marginHorizontal="8dp"/>
+                    <ImageView android:id="@+id/imgBall3" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ball_green" android:layout_marginHorizontal="8dp"/>
                 </LinearLayout>
-                <Button android:id="@+id/btnRandomize" android:layout_width="wrap_content" android:layout_height="40dp" android:text="REROLL" android:backgroundTint="#333" android:textColor="#AAA" android:textSize="12sp"/>
+
+                <Button android:id="@+id/btnRandomize" android:layout_width="wrap_content" android:layout_height="40dp" android:text="REROLL" android:backgroundTint="#2C2C2E" android:textColor="#FFFFFF" android:textSize="12sp" app:cornerRadius="20dp"/>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="16dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgRobotCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <RadioButton android:id="@+id/rbOneBot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 Robot" android:textColor="#FFFFFF" android:buttonTint="#0A7AFF" android:layout_marginEnd="32dp"/>
+                    <RadioButton android:id="@+id/rbTwoBots" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2 Robots" android:textColor="#FFFFFF" android:buttonTint="#0A7AFF" android:checked="true"/>
+                </RadioGroup>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <RadioGroup
-            android:id="@+id/rgRobotCount"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_button_round"
-            android:backgroundTint="#252525"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
-            <RadioButton android:id="@+id/rbOneBot" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="1 Robot" android:textColor="#FFF" android:buttonTint="@color/accent_teleop" android:gravity="center"/>
-            <View android:layout_width="1dp" android:layout_height="24dp" android:background="#444"/>
-            <RadioButton android:id="@+id/rbTwoBots" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="2 Robots" android:textColor="#FFF" android:buttonTint="@color/accent_teleop" android:gravity="center" android:checked="true"/>
-        </RadioGroup>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="8dp"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="36dp"
+            app:cardElevation="0dp"
             android:layout_marginBottom="24dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp"
+                android:paddingVertical="32dp"
+                android:paddingHorizontal="24dp"
                 android:gravity="center">
+
                 <LinearLayout
                     android:id="@+id/layoutTimerSection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center">
-                    <TextView android:id="@+id/tvMatchPhase" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PRE-MATCH" android:textColor="#888" android:textSize="14sp" android:textStyle="bold" android:letterSpacing="0.2"/>
-                    <TextView android:id="@+id/tvTimer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2:30" android:textColor="#FFFFFF" android:textSize="72sp" android:textStyle="bold" android:includeFontPadding="false"/>
+                    <TextView android:id="@+id/tvMatchPhase" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PRE-MATCH" android:textColor="#888888" android:textSize="14sp" android:textStyle="bold" android:letterSpacing="0.2"/>
+                    <TextView android:id="@+id/tvTimer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2:30" android:textColor="#FFFFFF" android:textSize="84sp" android:textStyle="bold" android:includeFontPadding="false" android:layout_marginTop="8dp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="8dp">
-                    <TextView android:id="@+id/tvTotalScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/accent_teleop" android:textSize="40sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" PTS" android:textColor="#666" android:textSize="16sp" android:layout_marginBottom="6dp"/>
-                    <View android:layout_width="1dp" android:layout_height="30dp" android:background="#444" android:layout_marginHorizontal="20dp"/>
-                    <TextView android:id="@+id/tvRP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/accent_score" android:textSize="40sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" RP" android:textColor="#666" android:textSize="16sp" android:layout_marginBottom="6dp"/>
+                    android:layout_marginTop="16dp">
+                    <TextView android:id="@+id/tvTotalScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#03DAC5" android:textSize="48sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" PTS" android:textColor="#888888" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+                    <View android:layout_width="1dp" android:layout_height="40dp" android:background="#2C2C2E" android:layout_marginHorizontal="24dp"/>
+                    <TextView android:id="@+id/tvRP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFC107" android:textSize="48sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" RP" android:textColor="#888888" android:textSize="16sp" android:layout_marginBottom="8dp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/layoutTimerControls"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="24dp">
-                    <Button android:id="@+id/btnStart" android:layout_width="0dp" android:layout_weight="1" android:layout_height="60dp" android:text="START" android:backgroundTint="#00C853" android:textColor="#000" android:textStyle="bold" app:cornerRadius="12dp"/>
+                    android:layout_marginTop="32dp">
+                    <Button android:id="@+id/btnStart" android:layout_width="0dp" android:layout_weight="1" android:layout_height="64dp" android:text="START" android:textSize="18sp" android:backgroundTint="#00C853" android:textColor="#000000" android:textStyle="bold" app:cornerRadius="32dp"/>
                     <View android:layout_width="12dp" android:layout_height="1dp"/>
-                    <Button android:id="@+id/btnStop" android:layout_width="60dp" android:layout_height="60dp" android:text="■" android:backgroundTint="#D32F2F" android:textColor="#FFF" android:enabled="false" app:cornerRadius="12dp"/>
+                    <Button android:id="@+id/btnStop" android:layout_width="64dp" android:layout_height="64dp" android:text="■" android:textSize="20sp" android:backgroundTint="#FF3B30" android:textColor="#FFFFFF" android:enabled="false" app:cornerRadius="32dp"/>
                     <View android:layout_width="12dp" android:layout_height="1dp"/>
-                    <Button android:id="@+id/btnResetTimer" android:layout_width="60dp" android:layout_height="60dp" android:text="↻" android:backgroundTint="#333" android:textColor="#FFF" app:cornerRadius="12dp"/>
+                    <Button android:id="@+id/btnResetTimer" android:layout_width="64dp" android:layout_height="64dp" android:text="↻" android:textSize="20sp" android:backgroundTint="#2C2C2E" android:textColor="#FFFFFF" app:cornerRadius="32dp"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -215,19 +283,29 @@
             android:id="@+id/cardAuto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="24dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AUTONOMOUS" android:textColor="@color/accent_auto" android:textStyle="bold" android:layout_marginBottom="8dp"/>
-                <TextView android:text="Leave Starting Zone (3pts)" android:textColor="#CCC" android:textSize="12sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
-                    <CheckBox android:id="@+id/cbAutoLeave1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 1" android:textColor="#FFF" android:buttonTint="@color/accent_auto"/>
-                    <CheckBox android:id="@+id/cbAutoLeave2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 2" android:textColor="#FFF" android:buttonTint="@color/accent_auto" android:layout_marginStart="16dp"/>
-                </LinearLayout>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginVertical="12dp"/>
+            app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="28dp" app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AUTONOMOUS" android:textColor="#BB86FC" android:textSize="16sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="16dp"/>
 
-                <LinearLayout android:id="@+id/incAutoClassified" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Classified" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
-                <LinearLayout android:id="@+id/incAutoOverflow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Overflow" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
-                <LinearLayout android:id="@+id/incAutoPattern" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Pattern" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
+                <TextView android:text="Leave Starting Zone (3pts)" android:textColor="#888888" android:textStyle="bold" android:textSize="13sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <CheckBox android:id="@+id/cbAutoLeave1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 1" android:textColor="#FFFFFF" android:buttonTint="#BB86FC"/>
+                    <CheckBox android:id="@+id/cbAutoLeave2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 2" android:textColor="#FFFFFF" android:buttonTint="#BB86FC" android:layout_marginStart="24dp"/>
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="16dp"/>
+
+                <LinearLayout android:id="@+id/incAutoClassified" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Classified" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="48dp" android:layout_height="48dp" android:text="&#x2212;" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#FFFFFF" android:backgroundTint="#2C2C2E" app:cornerRadius="24dp"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="48dp" android:layout_height="48dp" android:text="+" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#000000" android:backgroundTint="#03DAC5" app:cornerRadius="24dp"/></LinearLayout></LinearLayout>
+                <LinearLayout android:id="@+id/incAutoOverflow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Overflow" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="48dp" android:layout_height="48dp" android:text="&#x2212;" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#FFFFFF" android:backgroundTint="#2C2C2E" app:cornerRadius="24dp"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="48dp" android:layout_height="48dp" android:text="+" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#000000" android:backgroundTint="#03DAC5" app:cornerRadius="24dp"/></LinearLayout></LinearLayout>
+
+                <LinearLayout android:id="@+id/incAutoPattern" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp">
+                    <TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Pattern" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center" android:layout_marginEnd="16dp"/>
+                        <Button android:id="@+id/btnSelect" android:layout_width="wrap_content" android:layout_height="40dp" android:text="SELECT" android:textColor="#000000" android:backgroundTint="#BB86FC" app:cornerRadius="20dp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -235,13 +313,21 @@
             android:id="@+id/cardTeleop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="24dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TELEOP" android:textColor="@color/accent_teleop" android:textStyle="bold" android:layout_marginBottom="8dp"/>
-                <LinearLayout android:id="@+id/incTeleopClassified" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Classified" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
-                <LinearLayout android:id="@+id/incTeleopOverflow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Overflow" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
-                <LinearLayout android:id="@+id/incTeleopDepot" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Depot" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
-                <LinearLayout android:id="@+id/incTeleopPattern" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="6dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Pattern" android:textColor="#FFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="50dp" android:layout_height="50dp" android:text="-" android:textSize="24sp" android:textColor="#FFF" android:backgroundTint="#444"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFF" android:textSize="22sp" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="50dp" android:layout_height="50dp" android:text="+" android:textSize="24sp" android:textColor="#000" android:backgroundTint="#03DAC5"/></LinearLayout></LinearLayout>
+            app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="28dp" app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TELEOP" android:textColor="#03DAC5" android:textSize="16sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="16dp"/>
+                <LinearLayout android:id="@+id/incTeleopClassified" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Classified" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="48dp" android:layout_height="48dp" android:text="&#x2212;" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#FFFFFF" android:backgroundTint="#2C2C2E" app:cornerRadius="24dp"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="48dp" android:layout_height="48dp" android:text="+" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#000000" android:backgroundTint="#03DAC5" app:cornerRadius="24dp"/></LinearLayout></LinearLayout>
+                <LinearLayout android:id="@+id/incTeleopOverflow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Overflow" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="48dp" android:layout_height="48dp" android:text="&#x2212;" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#FFFFFF" android:backgroundTint="#2C2C2E" app:cornerRadius="24dp"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="48dp" android:layout_height="48dp" android:text="+" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#000000" android:backgroundTint="#03DAC5" app:cornerRadius="24dp"/></LinearLayout></LinearLayout>
+                <LinearLayout android:id="@+id/incTeleopDepot" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp"><TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Depot" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"><Button android:id="@+id/btnMinus" android:layout_width="48dp" android:layout_height="48dp" android:text="&#x2212;" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#FFFFFF" android:backgroundTint="#2C2C2E" app:cornerRadius="24dp"/><TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center"/><Button android:id="@+id/btnPlus" android:layout_width="48dp" android:layout_height="48dp" android:text="+" android:textSize="26sp" android:insetTop="0dp" android:insetBottom="0dp" android:padding="0dp" android:includeFontPadding="false" android:gravity="center" android:textColor="#000000" android:backgroundTint="#03DAC5" app:cornerRadius="24dp"/></LinearLayout></LinearLayout>
+
+                <LinearLayout android:id="@+id/incTeleopPattern" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="8dp">
+                    <TextView android:id="@+id/tvLabel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Pattern" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:id="@+id/tvValue" android:layout_width="40dp" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:gravity="center" android:layout_marginEnd="16dp"/>
+                        <Button android:id="@+id/btnSelect" android:layout_width="wrap_content" android:layout_height="40dp" android:text="SELECT" android:textColor="#000000" android:backgroundTint="#BB86FC" app:cornerRadius="20dp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -249,45 +335,53 @@
             android:id="@+id/cardEndgame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="32dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENDGAME" android:textColor="@color/accent_endgame" android:textStyle="bold" android:layout_marginBottom="8dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 1 Parking" android:textColor="#CCC" android:textSize="14sp" android:textStyle="bold"/>
-                <RadioGroup android:id="@+id/rgPark1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
-                    <RadioButton android:id="@+id/rbPark1None" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="None" android:textColor="#FFF" android:buttonTint="@color/accent_endgame" android:checked="true"/>
-                    <RadioButton android:id="@+id/rbPark1Partial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Part" android:textColor="#FFF" android:buttonTint="@color/accent_endgame"/>
-                    <RadioButton android:id="@+id/rbPark1Full" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Full" android:textColor="#FFF" android:buttonTint="@color/accent_endgame"/>
+            app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="28dp" app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENDGAME" android:textColor="#FF5252" android:textSize="16sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 1 Parking" android:textColor="#888888" android:textSize="14sp" android:textStyle="bold"/>
+                <RadioGroup android:id="@+id/rgPark1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <RadioButton android:id="@+id/rbPark1None" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="None" android:textColor="#FFFFFF" android:buttonTint="#FF5252" android:checked="true"/>
+                    <RadioButton android:id="@+id/rbPark1Partial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Part" android:textColor="#FFFFFF" android:buttonTint="#FF5252"/>
+                    <RadioButton android:id="@+id/rbPark1Full" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Full" android:textColor="#FFFFFF" android:buttonTint="#FF5252"/>
                 </RadioGroup>
 
-                <RadioGroup android:id="@+id/rgPark1Level" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
-                    <RadioButton android:id="@+id/rbPark1LevelNA" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="N/A" android:textColor="#AAA" android:buttonTint="#AAA" android:checked="true"/>
-                    <RadioButton android:id="@+id/rbPark1LevelUp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Up" android:textColor="#AAA" android:buttonTint="#AAA"/>
-                    <RadioButton android:id="@+id/rbPark1LevelDown" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Down" android:textColor="#AAA" android:buttonTint="#AAA"/>
+                <RadioGroup android:id="@+id/rgPark1Level" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp" android:visibility="gone">
+                    <RadioButton android:id="@+id/rbPark1LevelNA" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="N/A" android:textColor="#888888" android:buttonTint="#888888" android:checked="true"/>
+                    <RadioButton android:id="@+id/rbPark1LevelUp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Up" android:textColor="#888888" android:buttonTint="#888888"/>
+                    <RadioButton android:id="@+id/rbPark1LevelDown" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Down" android:textColor="#888888" android:buttonTint="#888888"/>
                 </RadioGroup>
 
                 <LinearLayout android:id="@+id/layoutRobot2Parking" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="16dp">
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginBottom="12dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 2 Parking" android:textColor="#CCC" android:textSize="14sp" android:textStyle="bold"/>
-                    <RadioGroup android:id="@+id/rgPark2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
-                        <RadioButton android:id="@+id/rbPark2None" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="None" android:textColor="#FFF" android:buttonTint="@color/accent_endgame" android:checked="true"/>
-                        <RadioButton android:id="@+id/rbPark2Partial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Part" android:textColor="#FFF" android:buttonTint="@color/accent_endgame"/>
-                        <RadioButton android:id="@+id/rbPark2Full" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Full" android:textColor="#FFF" android:buttonTint="@color/accent_endgame"/>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginBottom="16dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Robot 2 Parking" android:textColor="#888888" android:textSize="14sp" android:textStyle="bold"/>
+                    <RadioGroup android:id="@+id/rgPark2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                        <RadioButton android:id="@+id/rbPark2None" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="None" android:textColor="#FFFFFF" android:buttonTint="#FF5252" android:checked="true"/>
+                        <RadioButton android:id="@+id/rbPark2Partial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Part" android:textColor="#FFFFFF" android:buttonTint="#FF5252"/>
+                        <RadioButton android:id="@+id/rbPark2Full" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Full" android:textColor="#FFFFFF" android:buttonTint="#FF5252"/>
                     </RadioGroup>
 
-                    <RadioGroup android:id="@+id/rgPark2Level" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
-                        <RadioButton android:id="@+id/rbPark2LevelNA" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="N/A" android:textColor="#AAA" android:buttonTint="#AAA" android:checked="true"/>
-                        <RadioButton android:id="@+id/rbPark2LevelUp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Up" android:textColor="#AAA" android:buttonTint="#AAA"/>
-                        <RadioButton android:id="@+id/rbPark2LevelDown" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Down" android:textColor="#AAA" android:buttonTint="#AAA"/>
+                    <RadioGroup android:id="@+id/rgPark2Level" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp" android:visibility="gone">
+                        <RadioButton android:id="@+id/rbPark2LevelNA" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="N/A" android:textColor="#888888" android:buttonTint="#888888" android:checked="true"/>
+                        <RadioButton android:id="@+id/rbPark2LevelUp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Up" android:textColor="#888888" android:buttonTint="#888888"/>
+                        <RadioButton android:id="@+id/rbPark2LevelDown" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Down" android:textColor="#888888" android:buttonTint="#888888"/>
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="24dp">
-            <RadioGroup android:id="@+id/rgMatchResult" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp" android:gravity="center">
-                <RadioButton android:id="@+id/rbWin" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="WIN" android:textColor="#FFF" android:buttonTint="#4CAF50" android:checked="true" android:textStyle="bold"/>
-                <RadioButton android:id="@+id/rbTie" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TIE" android:textColor="#FFF" android:buttonTint="#FFC107" android:textStyle="bold"/>
-                <RadioButton android:id="@+id/rbLoss" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LOSS" android:textColor="#FFF" android:buttonTint="#F44336" android:textStyle="bold"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMatchResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="20dp">
+            <RadioGroup android:id="@+id/rgMatchResult" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center">
+                <RadioButton android:id="@+id/rbWin" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="WIN" android:textColor="#FFFFFF" android:buttonTint="#34C759" android:checked="true" android:textStyle="bold" android:textSize="16sp"/>
+                <RadioButton android:id="@+id/rbTie" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TIE" android:textColor="#FFFFFF" android:buttonTint="#FFCC00" android:textStyle="bold" android:textSize="16sp"/>
+                <RadioButton android:id="@+id/rbLoss" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LOSS" android:textColor="#FFFFFF" android:buttonTint="#FF3B30" android:textStyle="bold" android:textSize="16sp"/>
             </RadioGroup>
         </androidx.cardview.widget.CardView>
 
@@ -295,51 +389,78 @@
             android:id="@+id/cardMechanisms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="28dp" app:cardElevation="0dp" android:layout_marginBottom="20dp"
             android:visibility="gone">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MECHANISMS (Scouting)" android:textColor="#FF9800" android:textStyle="bold" android:textSize="18sp" android:layout_marginBottom="16dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Drivetrain" android:textColor="#AAA" android:textStyle="bold"/>
-                <Spinner android:id="@+id/spinDrivetrain" android:layout_width="match_parent" android:layout_height="40dp" android:background="@drawable/bg_button_round" android:backgroundTint="#333" android:layout_marginTop="4dp"/>
-                <EditText android:id="@+id/etDrivetrainNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Drivetrain Notes" android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444" android:layout_marginTop="4dp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginVertical="12dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MECHANISMS" android:textColor="#FF9500" android:textStyle="bold" android:textSize="16sp" android:layout_marginBottom="20dp" android:letterSpacing="0.1"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Intake" android:textColor="#AAA" android:textStyle="bold"/>
-                <EditText android:id="@+id/etIntakeNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Intake Notes" android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444" android:layout_marginTop="4dp"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginVertical="12dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Drivetrain" android:textColor="#888888" android:textStyle="bold"/>
+                <Spinner android:id="@+id/spinDrivetrain" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/bg_spinner_oneui" android:layout_marginTop="8dp" android:paddingStart="12dp" android:paddingEnd="40dp"/>
+                <EditText android:id="@+id/etDrivetrainNotes" android:layout_width="match_parent" android:layout_height="48dp" android:hint="Drivetrain Notes" android:textColor="#FFFFFF" android:textColorHint="#888888" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:layout_marginTop="8dp" android:paddingHorizontal="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="20dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sort" android:textColor="#AAA" android:textStyle="bold"/>
-                <RadioGroup android:id="@+id/rgSort" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <RadioButton android:id="@+id/rbSortYes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yes" android:textColor="#FFF" android:buttonTint="#03DAC5"/>
-                    <RadioButton android:id="@+id/rbSortNo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No" android:textColor="#FFF" android:buttonTint="#FF5555" android:checked="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Intake" android:textColor="#888888" android:textStyle="bold"/>
+                <EditText android:id="@+id/etIntakeNotes" android:layout_width="match_parent" android:layout_height="48dp" android:hint="Intake Notes" android:textColor="#FFFFFF" android:textColorHint="#888888" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:layout_marginTop="8dp" android:paddingHorizontal="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="20dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sort" android:textColor="#888888" android:textStyle="bold"/>
+                <RadioGroup android:id="@+id/rgSort" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <RadioButton android:id="@+id/rbSortYes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yes" android:textColor="#FFFFFF" android:buttonTint="#03DAC5" android:layout_marginEnd="24dp"/>
+                    <RadioButton android:id="@+id/rbSortNo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No" android:textColor="#FFFFFF" android:buttonTint="#FF3B30" android:checked="true"/>
                 </RadioGroup>
-                <EditText android:id="@+id/etSortNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Sort Notes" android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginVertical="12dp"/>
+                <EditText android:id="@+id/etSortNotes" android:layout_width="match_parent" android:layout_height="48dp" android:hint="Sort Notes" android:textColor="#FFFFFF" android:textColorHint="#888888" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:layout_marginTop="8dp" android:paddingHorizontal="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="20dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Outtake Features" android:textColor="#AAA" android:textStyle="bold"/>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
-                    <CheckBox android:id="@+id/cbTurret" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Turret" android:textColor="#FFF" android:buttonTint="#BB86FC" />
-                    <CheckBox android:id="@+id/cbHood" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adj. Hood" android:textColor="#FFF" android:buttonTint="#BB86FC" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Outtake / Launcher" android:textColor="#888888" android:textStyle="bold"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <CheckBox android:id="@+id/cbTurret" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Turret" android:textColor="#FFFFFF" android:buttonTint="#BB86FC" android:layout_marginEnd="24dp"/>
+                    <CheckBox android:id="@+id/cbHood" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adj. Hood" android:textColor="#FFFFFF" android:buttonTint="#BB86FC" />
                 </LinearLayout>
-                <EditText android:id="@+id/etOuttakeNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Outtake Notes" android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444"/>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333" android:layout_marginVertical="12dp"/>
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Climb" android:textColor="#AAA" android:textStyle="bold"/>
-                <RadioGroup android:id="@+id/rgClimb" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <RadioButton android:id="@+id/rbClimbYes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yes" android:textColor="#FFF" android:buttonTint="#03DAC5"/>
-                    <RadioButton android:id="@+id/rbClimbNo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No" android:textColor="#FFF" android:buttonTint="#FF5555" android:checked="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Close Accuracy (1-5)" android:textColor="#AAAAAA" android:textSize="13sp" android:layout_marginTop="16dp"/>
+                <RadioGroup android:id="@+id/rgCloseAcc" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <RadioButton android:id="@+id/rbC1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="1" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbC2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="2" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbC3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="3" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbC4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="4" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbC5" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="5" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
                 </RadioGroup>
-                <EditText android:id="@+id/etClimbNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Climb Notes" android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Far Accuracy (1-5)" android:textColor="#AAAAAA" android:textSize="13sp" android:layout_marginTop="12dp"/>
+                <RadioGroup android:id="@+id/rgFarAcc" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <RadioButton android:id="@+id/rbF1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="1" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbF2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="2" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbF3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="3" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbF4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="4" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                    <RadioButton android:id="@+id/rbF5" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="5" android:textColor="#FFF" android:buttonTint="#BB86FC"/>
+                </RadioGroup>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Playstyle Dial (Close ← → Far)" android:textColor="#AAAAAA" android:textSize="13sp" android:layout_marginTop="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
+                    <TextView android:text="CLOSE" android:textColor="#03DAC5" android:textSize="10sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <SeekBar android:id="@+id/sbPlaystyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:max="9" android:progress="4" android:progressTint="#BB86FC" android:thumbTint="#BB86FC"/>
+                    <TextView android:text="FAR" android:textColor="#FF9500" android:textSize="10sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <EditText android:id="@+id/etOuttakeNotes" android:layout_width="match_parent" android:layout_height="48dp" android:hint="Outtake Notes" android:textColor="#FFFFFF" android:textColorHint="#888888" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:layout_marginTop="16dp" android:paddingHorizontal="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2C2C2E" android:layout_marginVertical="20dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Climb" android:textColor="#888888" android:textStyle="bold"/>
+                <RadioGroup android:id="@+id/rgClimb" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <RadioButton android:id="@+id/rbClimbYes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yes" android:textColor="#FFFFFF" android:buttonTint="#03DAC5" android:layout_marginEnd="24dp"/>
+                    <RadioButton android:id="@+id/rbClimbNo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No" android:textColor="#FFFFFF" android:buttonTint="#FF3B30" android:checked="true"/>
+                </RadioGroup>
+                <EditText android:id="@+id/etClimbNotes" android:layout_width="match_parent" android:layout_height="48dp" android:hint="Climb Notes" android:textColor="#FFFFFF" android:textColorHint="#888888" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:layout_marginTop="8dp" android:paddingHorizontal="16dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" android:layout_marginBottom="24dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MATCH NOTES" android:textColor="#B0B0B0" android:textStyle="bold" android:layout_marginBottom="8dp"/>
-                <EditText android:id="@+id/etMatchNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="General observations..." android:textColor="#FFF" android:textColorHint="#AAAAAA" android:backgroundTint="#444" android:lines="3" android:gravity="top|start" android:inputType="textMultiLine"/>
+            app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="28dp" app:cardElevation="0dp" android:layout_marginBottom="32dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NOTES" android:textColor="#888888" android:textSize="13sp" android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="12dp"/>
+                <EditText android:id="@+id/etMatchNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="100dp" android:hint="General observations..." android:textColor="#FFFFFF" android:textColorHint="#666666" android:background="@drawable/bg_button_round" android:backgroundTint="#2C2C2E" android:padding="16dp" android:gravity="top|start" android:inputType="textMultiLine"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -351,23 +472,25 @@
                 android:id="@+id/btnDiscard"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="60dp"
+                android:layout_height="64dp"
                 android:text="DISCARD"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:backgroundTint="#333"
-                android:textColor="#FF5555"
-                app:cornerRadius="12dp"
-                android:layout_marginEnd="12dp"/>
+                android:backgroundTint="#1A1A1A"
+                android:textColor="#FF3B30"
+                app:cornerRadius="32dp"
+                android:layout_marginEnd="16dp"/>
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_height="60dp"
+                android:layout_height="64dp"
                 android:text="SAVE MATCH"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:backgroundTint="#2962FF"
+                android:backgroundTint="#0A7AFF"
                 android:textColor="#FFFFFF"
-                app:cornerRadius="12dp"/>
+                app:cornerRadius="32dp"/>
         </LinearLayout>
 
     </LinearLayout>

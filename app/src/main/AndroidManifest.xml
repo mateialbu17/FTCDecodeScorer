@@ -18,16 +18,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity android:name=".HistoryActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SessionDetailsActivity" />
+        <activity android:name="com.example.ftcdecodescorer.EditMatchActivity" android:exported="false" />
     </application>
 
 </manifest>

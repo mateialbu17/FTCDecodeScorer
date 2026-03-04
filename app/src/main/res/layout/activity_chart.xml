@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayoutChart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#121212"
+    android:background="#000000"
     android:padding="16dp">
 
     <LinearLayout
@@ -12,16 +13,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="24dp">
 
-        <ImageView
-            android:id="@+id/btnBackChart"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_revert"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="4dp"
-            android:tint="#AAAAAA"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
+            <ImageView
+                android:id="@+id/btnBackChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="?attr/homeAsUpIndicator"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="14dp"
+                app:tint="#FFFFFF"/>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvChartTitle"
@@ -30,68 +38,104 @@
             android:layout_height="wrap_content"
             android:text="Score Progression"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:singleLine="true"
             android:ellipsize="end"/>
 
-        <ImageView
-            android:id="@+id/btnRotateChart"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_always_landscape_portrait"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="4dp"
-            android:tint="#BB86FC"
-            android:layout_marginEnd="8dp"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="12dp">
+            <ImageView
+                android:id="@+id/btnRotateChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_always_landscape_portrait"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                app:tint="#BB86FC"/>
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/btnSaveChart"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_save"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="4dp"
-            android:tint="#03DAC5"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardBackgroundColor="#1A1A1A"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
+            <ImageView
+                android:id="@+id/btnSaveChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_save"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                app:tint="#03DAC5"/>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/controlsCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
         android:layout_marginBottom="16dp">
 
-        <Switch
-            android:id="@+id/switchDarkMode"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dark Mode"
-            android:textColor="#FFFFFF"
-            android:checked="true"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:padding="20dp">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_marginBottom="16dp">
-        <RadioGroup
-            android:id="@+id/rgColors"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton android:id="@+id/rbColorCyan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cyan" android:textColor="#FFF" android:checked="true"/>
-            <RadioButton android:id="@+id/rbColorPurple" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Purple" android:textColor="#FFF"/>
-            <RadioButton android:id="@+id/rbColorGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Green" android:textColor="#FFF"/>
-            <RadioButton android:id="@+id/rbColorOrange" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Orange" android:textColor="#FFF"/>
-        </RadioGroup>
-    </HorizontalScrollView>
+            <Switch
+                android:id="@+id/switchDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dark Mode Chart"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:checked="true"
+                android:layout_marginBottom="16dp"/>
 
-    <FrameLayout
-        android:id="@+id/chartContainer"
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <RadioGroup
+                    android:id="@+id/rgColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbColorCyan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cyan" android:textColor="#FFFFFF" android:layout_marginEnd="20dp" android:checked="true"/>
+                    <RadioButton android:id="@+id/rbColorPurple" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Purple" android:textColor="#FFFFFF" android:layout_marginEnd="20dp"/>
+                    <RadioButton android:id="@+id/rbColorGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Green" android:textColor="#FFFFFF" android:layout_marginEnd="20dp"/>
+                    <RadioButton android:id="@+id/rbColorOrange" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Orange" android:textColor="#FFFFFF"/>
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chartCard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp">
+
+        <FrameLayout
+            android:id="@+id/chartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"/>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

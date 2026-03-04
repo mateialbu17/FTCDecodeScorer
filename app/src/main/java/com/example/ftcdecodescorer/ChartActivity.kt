@@ -53,7 +53,8 @@ class ChartActivity : AppCompatActivity() {
                 contentResolver.openOutputStream(it)?.use { outStream ->
                     val bitmap = Bitmap.createBitmap(chartContainer.width, chartContainer.height, Bitmap.Config.ARGB_8888)
                     val canvas = Canvas(bitmap)
-                    canvas.drawColor(if (isDarkMode) Color.parseColor("#121212") else Color.WHITE)
+                    // Fundalul pozei salvate va corespunde cu cel al cardului modern
+                    canvas.drawColor(if (isDarkMode) Color.parseColor("#1E1E1E") else Color.WHITE)
                     chartContainer.draw(canvas)
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
                 }
@@ -84,18 +85,40 @@ class ChartActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            matches = db.appDao().getMatchesForSession(sessionId)
+            val allMatches = db.appDao().getMatchesForSession(sessionId)
+            val selectedIndices = intent.getIntegerArrayListExtra("SELECTED_INDICES")
+
+            // Filtrăm lista de meciuri dacă am primit o selecție anume
+            matches = if (selectedIndices != null) {
+                allMatches.filterIndexed { index, _ -> selectedIndices.contains(index) }
+            } else {
+                allMatches
+            }
+
             drawChart()
         }
     }
 
     private fun updateThemeUI() {
-        val bgColor = if (isDarkMode) Color.parseColor("#121212") else Color.parseColor("#F5F5F5")
+        // Adaptare pentru One UI: Fundal negru pur, Carduri gri-închis
+        val bgColorRoot = if (isDarkMode) Color.parseColor("#000000") else Color.parseColor("#F2F2F7")
+        val bgColorCard = if (isDarkMode) Color.parseColor("#1E1E1E") else Color.parseColor("#FFFFFF")
         val textColor = if (isDarkMode) Color.WHITE else Color.BLACK
+        val iconColor = if (isDarkMode) Color.WHITE else Color.parseColor("#333333")
 
-        rootLayout.setBackgroundColor(bgColor)
+        rootLayout.setBackgroundColor(bgColorRoot)
+
+        // Actualizăm cardurile noastre rotunjite
+        findViewById<androidx.cardview.widget.CardView>(R.id.controlsCard).setCardBackgroundColor(bgColorCard)
+        findViewById<androidx.cardview.widget.CardView>(R.id.chartCard).setCardBackgroundColor(bgColorCard)
+
         findViewById<TextView>(R.id.tvChartTitle).setTextColor(textColor)
         findViewById<Switch>(R.id.switchDarkMode).setTextColor(textColor)
+
+        // Schimbăm nuanța pictogramelor sus
+        findViewById<ImageView>(R.id.btnBackChart).setColorFilter(iconColor)
+        findViewById<ImageView>(R.id.btnRotateChart).setColorFilter(iconColor)
+        findViewById<ImageView>(R.id.btnSaveChart).setColorFilter(iconColor)
 
         findViewById<RadioButton>(R.id.rbColorCyan).setTextColor(textColor)
         findViewById<RadioButton>(R.id.rbColorPurple).setTextColor(textColor)
@@ -119,6 +142,7 @@ class ChartActivity : AppCompatActivity() {
     }
 }
 
+// Clasa de grafic rămâne neschimbată, funcționează perfect cu noul design
 class BeautifulLineChart(
     context: Context,
     private val data: List<MatchResult>,
@@ -173,7 +197,6 @@ class BeautifulLineChart(
 
         val xStep = if (data.size > 1) graphW / (data.size - 1) else graphW / 2
 
-        // Draw grid
         val gridLines = 4
         for (i in 0..gridLines) {
             val y = h - paddingBottom - i * (graphH / gridLines)
@@ -189,7 +212,6 @@ class BeautifulLineChart(
             points.add(PointF(x, y))
         }
 
-        // Draw Smooth Path
         val path = Path()
         if (points.size == 1) {
             canvas.drawCircle(points[0].x, points[0].y, 15f, pointPaint)
@@ -206,7 +228,6 @@ class BeautifulLineChart(
                 path.cubicTo(conX1, conY1, conX2, conY2, p2.x, p2.y)
             }
 
-            // Draw Gradient Fill
             val fillPath = Path(path)
             fillPath.lineTo(points.last().x, h - paddingBottom)
             fillPath.lineTo(points.first().x, h - paddingBottom)
